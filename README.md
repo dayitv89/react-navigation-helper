@@ -1,5 +1,5 @@
 # react-navigation-helper
-![version](https://img.shields.io/badge/version-0.0.2-green.svg)
+![version](https://img.shields.io/badge/version-0.0.1-green.svg)
 
 react-navigation StackNavigator Helper as convert screensProps, params to props as React prefer component props style.
 
