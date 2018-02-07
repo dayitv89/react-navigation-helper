@@ -132,7 +132,7 @@ const setInitParamsToProps = SomeComponent => {
 const exportStackNavigator = SomeComponent => {
 	return class extends React.Component {
 		render() {
-			return <SomeComponent screenProps={this.props} />;
+			return <SomeComponent screenProps={this.props} {...this.props} />;
 		}
 	};
 };
