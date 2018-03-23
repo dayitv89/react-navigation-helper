@@ -19,7 +19,7 @@ const animateBottom2Top = sceneProps => {
 	const height = layout.initHeight;
 	const translateY = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [height, 0, 0]
+		outputRange: [height, 0, -20]
 	});
 
 	const opacity = position.interpolate({
@@ -36,7 +36,7 @@ const animateTop2Bottom = sceneProps => {
 	const height = layout.initHeight;
 	const translateY = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [-height, 0, height]
+		outputRange: [-height, 0, 20]
 	});
 
 	const opacity = position.interpolate({
@@ -53,7 +53,7 @@ const animateRight2Left = sceneProps => {
 	const width = layout.initWidth;
 	const translateX = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [width, 0, -width]
+		outputRange: [width, 0, -width / 4]
 	});
 
 	const opacity = position.interpolate({
@@ -70,7 +70,7 @@ const animateLeft2Right = sceneProps => {
 	const width = layout.initWidth;
 	const translateX = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [-width, 0, width]
+		outputRange: [-width, 0, width / 4]
 	});
 
 	const opacity = position.interpolate({
