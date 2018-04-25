@@ -5,7 +5,13 @@
 'use strict';
 
 import React from 'react';
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, AccessibilityInfo } from 'react-native';
+
+let isAccessibilityOn = false;
+handleAccessibilityState = isEnabled => (isAccessibilityOn = isEnabled);
+AccessibilityInfo.addEventListener('change', handleAccessibilityState);
+AccessibilityInfo.fetch().done(handleAccessibilityState);
+
 
 const transitionSpec = {
 	duration: 300,
@@ -17,9 +23,10 @@ const animateBottom2Top = sceneProps => {
 	const { layout, position, scene: { index } } = sceneProps;
 
 	const height = layout.initHeight;
+	const outputView = isAccessibilityOn ? -height : -20;
 	const translateY = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [height, 0, -20]
+		outputRange: [height, 0, outputView]
 	});
 
 	const opacity = position.interpolate({
@@ -34,9 +41,10 @@ const animateTop2Bottom = sceneProps => {
 	const { layout, position, scene: { index } } = sceneProps;
 
 	const height = layout.initHeight;
+	const outputView = isAccessibilityOn ? height : 20;
 	const translateY = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [-height, 0, 20]
+		outputRange: [-height, 0, outputView]
 	});
 
 	const opacity = position.interpolate({
@@ -51,9 +59,10 @@ const animateRight2Left = sceneProps => {
 	const { layout, position, scene: { index } } = sceneProps;
 
 	const width = layout.initWidth;
+	const outputView = isAccessibilityOn ? -width : -width/4;
 	const translateX = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [width, 0, -width / 4]
+		outputRange: [width, 0, outputView]
 	});
 
 	const opacity = position.interpolate({
@@ -68,9 +77,10 @@ const animateLeft2Right = sceneProps => {
 	const { layout, position, scene: { index } } = sceneProps;
 
 	const width = layout.initWidth;
+	const outputView = isAccessibilityOn ? width : width/4;
 	const translateX = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
-		outputRange: [-width, 0, width / 4]
+		outputRange: [-width, 0, outputView]
 	});
 
 	const opacity = position.interpolate({
