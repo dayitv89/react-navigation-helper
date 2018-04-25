@@ -8,7 +8,7 @@ import React from 'react';
 import { Animated, Easing, AccessibilityInfo } from 'react-native';
 
 let isAccessibilityOn = false;
-handleAccessibilityState = isEnabled => (isAccessibilityOn = isEnabled);
+const handleAccessibilityState = isEnabled => (isAccessibilityOn = isEnabled);
 AccessibilityInfo.addEventListener('change', handleAccessibilityState);
 AccessibilityInfo.fetch().done(handleAccessibilityState);
 
