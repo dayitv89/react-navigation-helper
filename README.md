@@ -18,7 +18,7 @@ Additionally, added some animation types available for screen transition:
 1. dismiss: top to bottom,
 
 ### Implementation
-```javascipt
+```js
 /// AppNavigation.js
 import { StackNavigator } from 'react-navigation';
 import { StackNavigatorHelper } from 'react-navigation-helper';
@@ -50,7 +50,7 @@ export default StackNavigatorHelper.exportStackNavigator(
 ```
 
 ### Uses
-```javascipt
+```js
 /// App.js
 import React from 'react';
 import { AppRegistry } from 'react-native';
