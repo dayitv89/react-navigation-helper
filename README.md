@@ -42,7 +42,7 @@ export default StackNavigatorHelper.exportStackNavigator(
   		transitionConfig: () =>
   			StackNavigatorHelper.transitionConfig({
   				MyComponent3: 'present',
-          MyComponent4: 'pop'
+          			MyComponent4: 'pop'
   			})
 	   }
 	)
