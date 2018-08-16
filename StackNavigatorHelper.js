@@ -12,7 +12,6 @@ const handleAccessibilityState = isEnabled => (isAccessibilityOn = isEnabled);
 AccessibilityInfo.addEventListener('change', handleAccessibilityState);
 AccessibilityInfo.fetch().done(handleAccessibilityState);
 
-
 const transitionSpec = {
 	duration: 300,
 	easing: Easing.out(Easing.poly(4)),
@@ -20,10 +19,14 @@ const transitionSpec = {
 };
 
 const animateBottom2Top = sceneProps => {
-	const { layout, position, scene: { index } } = sceneProps;
+	const {
+		layout,
+		position,
+		scene: { index }
+	} = sceneProps;
 
 	const height = layout.initHeight;
-	const outputView = isAccessibilityOn ? -height : -20;
+	const outputView = isAccessibilityOn ? -height : 0;
 	const translateY = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
 		outputRange: [height, 0, outputView]
@@ -38,7 +41,11 @@ const animateBottom2Top = sceneProps => {
 };
 
 const animateTop2Bottom = sceneProps => {
-	const { layout, position, scene: { index } } = sceneProps;
+	const {
+		layout,
+		position,
+		scene: { index }
+	} = sceneProps;
 
 	const height = layout.initHeight;
 	const outputView = isAccessibilityOn ? height : 20;
@@ -56,10 +63,14 @@ const animateTop2Bottom = sceneProps => {
 };
 
 const animateRight2Left = sceneProps => {
-	const { layout, position, scene: { index } } = sceneProps;
+	const {
+		layout,
+		position,
+		scene: { index }
+	} = sceneProps;
 
 	const width = layout.initWidth;
-	const outputView = isAccessibilityOn ? -width : -width/4;
+	const outputView = isAccessibilityOn ? -width : -width / 4;
 	const translateX = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
 		outputRange: [width, 0, outputView]
@@ -74,10 +85,14 @@ const animateRight2Left = sceneProps => {
 };
 
 const animateLeft2Right = sceneProps => {
-	const { layout, position, scene: { index } } = sceneProps;
+	const {
+		layout,
+		position,
+		scene: { index }
+	} = sceneProps;
 
 	const width = layout.initWidth;
-	const outputView = isAccessibilityOn ? width : width/4;
+	const outputView = isAccessibilityOn ? width : width / 4;
 	const translateX = position.interpolate({
 		inputRange: [index - 1, index, index + 1],
 		outputRange: [-width, 0, outputView]
@@ -93,7 +108,9 @@ const animateLeft2Right = sceneProps => {
 
 const _transitionType = (path, sceneProps) => {
 	const { scenes } = sceneProps;
-	const { route: { routeName } } = scenes[scenes.length - 1];
+	const {
+		route: { routeName }
+	} = scenes[scenes.length - 1];
 	if (Object.keys(path).includes(routeName)) {
 		return path[routeName];
 	}
@@ -124,7 +141,11 @@ const transitionConfig = (path, transition = {}) => {
 const paramsToProps = SomeComponent => {
 	return class extends React.Component {
 		render() {
-			const { navigation: { state: { params } } } = this.props;
+			const {
+				navigation: {
+					state: { params }
+				}
+			} = this.props;
 			return <SomeComponent {...params} {...this.props} />;
 		}
 	};

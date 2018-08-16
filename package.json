@@ -1,8 +1,7 @@
 {
 	"name": "react-navigation-helper",
-	"version": "1.0.3",
-	"description":
-		"react-navigation StackNavigatorHelper as convert screensProps, params to props as React prop style prefer.",
+	"version": "1.0.4",
+	"description": "react-navigation StackNavigatorHelper as convert screensProps, params to props as React prop style prefer.",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
