@@ -125,6 +125,8 @@ const handleAnimation = (sceneProps, path) => {
 			return animateTop2Bottom(sceneProps);
 		case 'pop':
 			return animateLeft2Right(sceneProps);
+		case 'none':
+			return null;
 		default:
 			return animateRight2Left(sceneProps); // push
 	}
