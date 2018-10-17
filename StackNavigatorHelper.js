@@ -106,6 +106,18 @@ const animateLeft2Right = sceneProps => {
 	return { opacity, transform: [{ translateX }] };
 };
 
+const none = sceneProps => {
+	const {
+		position,
+		scene: { index }
+	} = sceneProps;
+	const opacity = position.interpolate({
+		inputRange: [index - 1, index - 0.99, index],
+		outputRange: [0, 1, 1]
+	});
+	return { opacity };
+};
+
 const _transitionType = (path, sceneProps) => {
 	const { scenes } = sceneProps;
 	const {
@@ -126,7 +138,7 @@ const handleAnimation = (sceneProps, path) => {
 		case 'pop':
 			return animateLeft2Right(sceneProps);
 		case 'none':
-			return null;
+			return none(sceneProps);
 		default:
 			return animateRight2Left(sceneProps); // push
 	}
