@@ -1,6 +1,6 @@
 {
 	"name": "react-navigation-helper",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "react-navigation StackNavigatorHelper as convert screensProps, params to props as React prop style prefer.",
 	"main": "index.js",
 	"scripts": {

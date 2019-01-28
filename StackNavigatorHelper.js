@@ -18,6 +18,15 @@ const transitionSpec = {
 	timing: Animated.timing
 };
 
+const animateNone = ({ position }) => {
+	const opacity = position.interpolate({
+		inputRange: [1, 1, 1],
+		outputRange: [1, 1, 1]
+	});
+
+	return { opacity, transform: [] };
+};
+
 const animateBottom2Top = sceneProps => {
 	const {
 		layout,
@@ -126,7 +135,7 @@ const handleAnimation = (sceneProps, path) => {
 		case 'pop':
 			return animateLeft2Right(sceneProps);
 		case 'none':
-			return null;
+			return animateNone(sceneProps);
 		default:
 			return animateRight2Left(sceneProps); // push
 	}
