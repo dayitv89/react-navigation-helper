@@ -20,7 +20,7 @@ const transitionSpec = {
 
 const animateNone = ({ position }) => {
 	const opacity = position.interpolate({
-		inputRange: [1, 1, 1],
+		inputRange: [0, 1, 1],
 		outputRange: [1, 1, 1]
 	});
 
